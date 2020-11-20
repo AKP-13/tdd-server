@@ -1,0 +1,32 @@
+{
+  "name": "tdd-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha \"src/**/*.test.js\" --recursive --require @babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKP-13/linkedin-jstdd.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKP-13/linkedin-jstdd/issues"
+  },
+  "homepage": "https://github.com/AKP-13/linkedin-jstdd#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.20"
+  }
+}
