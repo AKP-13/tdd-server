@@ -1,5 +1,4 @@
 import { expect } from "chai";
-import { async } from "regenerator-runtime";
 import { getUserByUsername } from "./db";
 import {
     getDatabaseData,
@@ -11,6 +10,7 @@ describe("getUserByUsername", () => {
     afterEach("reset the database", async () => {
         await resetDatabase();
     });
+
     it("get the correct user from the database given a username", async () => {
         const fakeData = [
             {
@@ -38,5 +38,19 @@ describe("getUserByUsername", () => {
 
         expect(actual).excludingEvery("_id").to.deep.equal(expected);
         expect(finalDBState).excludingEvery("_id").to.deep.equal(fakeData);
+    });
+
+    it("returns null when the user is not found", async () => {
+        await setDatabaseData("users", [
+            {
+                id: "999",
+                username: "XYZ",
+                email: "nobody@gmail.com",
+            },
+        ]);
+
+        const actual = await getUserByUsername("def");
+
+        expect(actual).to.be.null;
     });
 });
